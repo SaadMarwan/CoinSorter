@@ -36,8 +36,15 @@ namespace ConsoleApp1
 
             foreach (var coin in coinsList)
             {
-                int profit = (int)rss["coins"][coin]["profitability"];
-                coinProfit.Add(coin, profit);
+                try
+                {
+                    int profit = (int)rss["coins"][coin]["profitability"];
+                    coinProfit.Add(coin, profit);
+                }
+                catch(Exception e)
+                {
+
+                }
             }
 
             var sortedCoinsProfitList = MergeSorter.MergeSort(coinProfit);
